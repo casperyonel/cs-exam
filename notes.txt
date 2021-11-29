@@ -1,0 +1,18 @@
+TIMING RESULTS: 
+tinyArray: doublerAppend: 85.791 μs and doublerInsert: 30.208 μs
+smallArray: doublerAppend: 97.791 μs and doublerInsert: 42 μs
+mediumArray: doublerAppend: 152.916 μs and doublerInsert: 214.958 μs
+largeArray: doublerAppend: 631.333 μs and doublerInsert: 10.206334 ms
+extraLargeArray: doublerAppend: 3.742625 ms and doublerInsert: 1.088907375 s
+
+Read over the results, and write a paragraph that explains the pattern you see. 
+How does each function “scale”? Which of the two functions scales better? How can you tell?
+
+ANSWER:
+The pattern I see is that as the array size increases so does the runtime.
+This makes sense and is the very reason we evaluate runtime at the largest scale possible. 
+This is to account for the “worst case scenario” and ensure that our code is most efficient no matter the size of the input. 
+Out of both functions, the doublerAppend function scales better. This is because it uses push instead of unshfit. 
+With unshift, the runtime requires a type of shifting in each index spot to be able to unshift the new number onto the array. 
+This is much more computationally demanding than just pushing on the new index spot, and leaving all other indexes the exact same. 
+This is why the doublerAppend function scales better at O(n). 
